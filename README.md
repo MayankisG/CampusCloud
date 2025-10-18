@@ -8,7 +8,7 @@
 
 ##  Overview
 
-CampusCloud is a **full-stack university campus management system** built using **Spring Boot** for the backend and **React** for the frontend. The platform enables streamlined management of campus operations.
+CampusCloud is a full-stack university campus management system.The platform enables streamlined management of campus operations.
 
 ---
 
@@ -21,34 +21,3 @@ CampusCloud is a **full-stack university campus management system** built using 
 - Robust database integration
 - Efficient state and form handling on the frontend
 - Modular, scalable project architecture
-
----
-
-##  Tech Stack
-
-| Layer     | Technology                                      |
-|-----------|--------------------------------------------------|
-| Frontend  | React  |
-| Backend   | Spring Boot, Spring Data JPA, RESTful APIs       |
-| Database  | MySQL (via Railway deployment)      |
-| Deployment| Render (backend), Railway (database), Netlify (frontend) |
-
----
-
-##  How to Run Locally
-
-### Prerequisites
-- Java 21+
-- npm
-- Maven
-- MySQL (if running backend locally)
-
-### Backend Setup
-
-git clone https://github.com/RawatSinghMayank/CampusCloud.git
-cd CampusCloud/CampusCloudUniversityCampusSystem
-# Adjust path if needed based on your structure
-
-### Frontend Setup
-npm install
-npm run dev
