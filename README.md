@@ -158,7 +158,7 @@ Ensure the following are installed:
 
 ---
 
-## 🔧 Backend Setup
+## 🔧 Backend and Frontend Setup
 
 ```bash
 # Clone repository
