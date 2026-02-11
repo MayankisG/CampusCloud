@@ -35,8 +35,8 @@ The backend is hosted on **Render free tier**, which may experience **cold start
 If the application does not load immediately, please refresh after backend startup.
 
 For a faster overview, watching the demo video is recommended.
-
----
+🎥 Demo Video
+https://www.youtube.com/watch?v=pYJvBpXoFwQ
 
 ## Key Features
 
