@@ -116,7 +116,7 @@ MySQL Database
 - Hosted on Netlify
 
 ### Database
-- Railway Cloud Database
+- Railway MySQL Cloud Database
 
 ### Authentication
 - Firebase Authentication
@@ -172,3 +172,13 @@ mvn clean install
 
 # Run backend
 mvn spring-boot:run
+
+## Frontend Setup
+Open another terminal window and run:
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start frontend development server
+npm run dev
