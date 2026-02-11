@@ -1,100 +1,174 @@
-University Campus Management System
-Overview
+# 🎓 University Campus Management System
+### Full-Stack Role-Based Campus Operations Platform
 
-University Campus Management System is a full-stack web application built using Spring Boot for the backend and React.js for the frontend.
-The system is designed to manage core university operations such as student management, faculty management, courses, attendance, and announcements in a centralized and role-based manner.
+![Spring Boot](https://img.shields.io/badge/Backend-SpringBoot-brightgreen)
+![React](https://img.shields.io/badge/Frontend-React-blue)
+![Firebase](https://img.shields.io/badge/Auth-Firebase-orange)
+![Render](https://img.shields.io/badge/Backend%20Hosting-Render-purple)
+![Netlify](https://img.shields.io/badge/Frontend%20Hosting-Netlify-green)
+![Railway](https://img.shields.io/badge/Database-Railway-red)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-Backend: Spring Boot (Java 21)
+A **full-stack university management platform** that centralizes academic operations including **student management, faculty operations, course handling, attendance tracking, and announcements**, all secured through role-based access control.
 
-Frontend: React.js
+The system is designed for real-world deployment and demonstrates full-stack development, API integration, authentication, and scalable system design.
 
-Authentication: Firebase Authentication
+---
 
-Backend Hosting: Render
+## 📖 Overview
 
-Frontend Hosting: Netlify
+The **University Campus Management System** simplifies campus administration by providing a centralized system accessible to:
 
-Database Hosting: Railway
+- Administrators
+- Faculty Members
+- Students
 
- Warning:
-The backend is deployed on Render (free tier). Due to cold start, the backend may take 2–3 minutes to start when accessed for the first time. Please wait patiently or refresh after a few minutes.
+Each role has dedicated functionalities ensuring structured academic workflow and secure access.
 
-Features
- Authentication
+---
 
-Secure login using Firebase Authentication
+## Deployment Note
 
-Role-based access control
+The backend is hosted on **Render free tier**, which may experience **cold start delays**.
 
- User Modules
-1️ Admin Module
+ First request may take **2–3 minutes** to initialize.  
+If the application does not load immediately, please refresh after backend startup.
 
-Faculty enrollment
+For a faster overview, watching the demo video is recommended.
 
-Student enrollment
+---
 
-Course creation
+## Key Features
 
-Course enrollment
+### Authentication & Security
+- Firebase Authentication integration
+- Secure login system
+- Role-based access control
+- Protected API access
 
-Teacher assignment to courses
+---
 
-Publish announcements
+## 👥 Role-Based Modules
 
-2️ Faculty Module
+### 🛠 Admin Module
+Administrative control over university operations:
 
-Mark student attendance
+- Faculty enrollment and management
+- Student enrollment and management
+- Course creation and configuration
+- Course enrollment management
+- Assigning faculty to courses
+- Publishing announcements
 
-View assigned courses
+---
+### Faculty Module
+Faculty members manage academic activities:
 
-Manage attendance records
+- Mark student attendance
+- View assigned courses
+- Manage attendance records
+- Faculty profile management
 
-Profile management
+---
 
-3️ Student Module
+### 🎓 Student Module
+Students access academic information:
 
-Course enrollment
+- Course enrollment
+- Attendance tracking
+- Announcement viewing
+- Student profile management
 
-View attendance
+---
 
-View announcements
+## 🏗 System Architecture
+User
+│
+▼
+React Frontend (Netlify)
+│
+├── Authentication → Firebase Auth
+│
+▼
+Spring Boot Backend APIs (Render)
+│
+▼
+MySQL Database 
 
-Profile management
+---
+---
 
- Tech Stack
-Backend
+## 🧰 Tech Stack
 
-Java 21
+### Backend
+- Java 21
+- Spring Boot
+- Spring Data JPA
+- REST APIs
+- Maven
+- Hosted on Render
 
-Spring Boot
+### Frontend
+- React.js
+- Vite
+- Axios
+- Tailwind CSS / CSS
+- Hosted on Netlify
 
-REST APIs
+### Database
+- Railway Cloud Database
 
-Hosted on Render
+### Authentication
+- Firebase Authentication
 
-Frontend
+---
 
-React.js
+## 🌐 Live Links
 
-Vite
-
-Hosted on Netlify
-
-Database
-
-Railway
-
-Authentication
-
-Firebase Authentication
-
- Live Links
-
-🔗 Live Application:
+🔗 **Live Application**  
 https://mayank-singh-rawat.netlify.app/
 
-🎥 YouTube Demo Video:
+🎥 **Demo Video**  
 https://www.youtube.com/watch?v=pYJvBpXoFwQ
 
-(Recommended to watch due to backend cold start delay)
+*(Recommended due to backend cold start delay.)*
 
+---
+
+## ⚙️ Application Workflow
+
+1. Users log in via Firebase Authentication.
+2. Role-based access determines allowed operations.
+3. Admin manages courses, users, and announcements.
+4. Faculty manages attendance and courses.
+5. Students track courses and attendance.
+6. All modules communicate via REST APIs.
+
+---
+
+## ⚡ Getting Started (Local Setup)
+
+### Prerequisites
+Ensure the following are installed:
+
+- Java 21+
+- Node.js & npm
+- Maven
+- Git
+
+---
+
+## 🔧 Backend Setup
+
+```bash
+# Clone repository
+git clone <repository-url>
+
+# Navigate to backend folder
+cd backend
+
+# Build project
+mvn clean install
+
+# Run backend
+mvn spring-boot:run
