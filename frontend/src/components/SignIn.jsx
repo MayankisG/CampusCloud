@@ -38,8 +38,9 @@ const SignIn = () => {
       );
       const idToken = await userCredential.user.getIdToken();
 
+      const apiBaseUrl = import.meta.env.VITE_API_URL || "http://localhost:8080";
       const response = await axios.post(
-        "http://localhost:8080/auth/login",
+        `${apiBaseUrl}/auth/login`,
         { idToken },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -75,7 +76,7 @@ const SignIn = () => {
     <>
       <BackgroundImage style={{ backgroundImage: `url(${backgroundImage})` }} />
       <AuthContainer>
-        <Title >Campus Cloud University</Title>
+        <Title>Campus Cloud University</Title>
         <FormContainer onSubmit={handleSignIn}>
           <InputField
             type="email"

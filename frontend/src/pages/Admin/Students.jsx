@@ -105,14 +105,17 @@ const Students = () => {
         parentOccupation: studentData.parentOccupation || null,
       };
 
-      const response = await fetch("http://localhost:8080/api/uploadStudent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`,
-        },
-        body: JSON.stringify(studentPayload),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/uploadStudent`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
+          },
+          body: JSON.stringify(studentPayload),
+        }
+      );
 
       if (!response.ok) {
         let errorMessage = "Failed to add student";
@@ -192,7 +195,7 @@ const Students = () => {
       formData.append("file", file);
 
       const response = await fetch(
-        "http://localhost:8080/api/uploadStudentDetails",
+        `${import.meta.env.VITE_API_URL}/api/uploadStudentDetails`,
         {
           method: "POST",
           body: formData,

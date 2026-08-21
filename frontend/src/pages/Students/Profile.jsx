@@ -21,7 +21,7 @@ import {
   SuccessMessage,
 } from "../../styles/SettingsProfileStyles";
 
-const API_BASE_URL = "http://localhost:8080/api";
+const API_BASE_URL = `${import.meta.env.VITE_API_URL}/api`;
 
 const ProfileSection = () => {
   const [studentProfile, setStudentProfile] = useState(null);

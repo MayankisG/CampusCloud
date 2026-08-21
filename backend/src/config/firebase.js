@@ -1,23 +1,27 @@
-const admin = require('firebase-admin');
-const path = require('path');
-const fs = require('fs');
+import admin from 'firebase-admin';
+import dotenv from 'dotenv';
 
-const serviceAccountPath = path.join(__dirname, '../../firebase-service-account.json');
+dotenv.config();
 
-let app;
+// Initialize Firebase Admin SDK
+let firebaseApp;
 
-if (fs.existsSync(serviceAccountPath)) {
-  const serviceAccount = require(serviceAccountPath);
-  app = admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-  });
-  console.log('Firebase Admin initialized with service account.');
-} else {
-  console.warn('firebase-service-account.json not found! Falling back to application default credentials.');
-  app = admin.initializeApp();
+try {
+  if (process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
+    firebaseApp = admin.initializeApp({
+      credential: admin.credential.cert(process.env.FIREBASE_SERVICE_ACCOUNT_PATH)
+    });
+  } else if (process.env.FIREBASE_PROJECT_ID) {
+    firebaseApp = admin.initializeApp({
+      credential: admin.credential.applicationDefault(),
+      projectId: process.env.FIREBASE_PROJECT_ID
+    });
+  } else {
+    console.warn('Firebase configuration not found. Firebase authentication will not work.');
+  }
+} catch (error) {
+  console.error('Firebase initialization error:', error.message);
 }
 
-module.exports = {
-  admin,
-  auth: admin.auth()
-};
+export const firebaseAuth = firebaseApp ? admin.auth() : null;
+export default firebaseApp;

@@ -19,7 +19,7 @@ const StudentAnnouncement = () => {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.get(
-        "http://localhost:8080/api/all/announcement",
+        `${import.meta.env.VITE_API_URL}/api/all/announcement`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -23,10 +23,13 @@ const Announcement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/api/admin/announcement", {
-        title,
-        message,
-      });
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/admin/announcement`,
+        {
+          title,
+          message,
+        }
+      );
       alert("Announcement sent successfully!");
       setMessage("");
       fetchAllAnnouncements();
@@ -39,7 +42,7 @@ const Announcement = () => {
   const fetchAllAnnouncements = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/all/announcement"
+        `${import.meta.env.VITE_API_URL}/api/all/announcement`
       );
       setAnnouncements(response.data);
     } catch (error) {
@@ -49,7 +52,9 @@ const Announcement = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/delete/Announcement/${id}`);
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/delete/Announcement/${id}`
+      );
       fetchAllAnnouncements();
       alert("Announcement deleted successfully!");
     } catch (error) {

@@ -75,7 +75,7 @@ const Teachers = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/uploadFaculty",
+        `${import.meta.env.VITE_API_URL}/api/uploadFaculty`,
         payload,
         {
           headers: {

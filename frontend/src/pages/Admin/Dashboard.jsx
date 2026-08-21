@@ -70,8 +70,12 @@ const AdminDashboard = () => {
       try {
         // Fetch counts
         const [studentRes, teacherRes] = await Promise.all([
-          axios.get("http://localhost:8080/api/AdminDashboard/students/count"),
-          axios.get("http://localhost:8080/api/AdminDashboard/faculty/count"),
+          axios.get(
+            `${import.meta.env.VITE_API_URL}/api/AdminDashboard/students/count`
+          ),
+          axios.get(
+            `${import.meta.env.VITE_API_URL}/api/AdminDashboard/faculty/count`
+          ),
         ]);
         setStudentCount(studentRes.data);
         setTeacherCount(teacherRes.data);
@@ -94,9 +98,12 @@ const AdminDashboard = () => {
 
   const fetchCurrentCalendar = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/calendar", {
-        responseType: "blob",
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/calendar`,
+        {
+          responseType: "blob",
+        }
+      );
 
       if (response.data.size > 0) {
         const pdfUrl = URL.createObjectURL(response.data);
@@ -134,11 +141,15 @@ const AdminDashboard = () => {
     try {
       setUploadStatus("Uploading...");
 
-      await axios.post("http://localhost:8080/api/calendar", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/calendar`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       // Refresh the calendar
       await fetchCurrentCalendar();

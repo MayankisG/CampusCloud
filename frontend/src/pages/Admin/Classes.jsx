@@ -33,7 +33,7 @@ const SubjectEnrollment = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/enrollments"
+          `${import.meta.env.VITE_API_URL}/api/enrollments`
         );
         setEnrollments(response.data);
       } catch (err) {
@@ -68,7 +68,7 @@ const SubjectEnrollment = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/enrollments/create-for-all",
+        `${import.meta.env.VITE_API_URL}/api/enrollments/create-for-all`,
         enrollmentData
       );
       setEnrollments([...enrollments, response.data]);
@@ -166,10 +166,6 @@ const SubjectEnrollment = () => {
                       {enrollment.subjectName} ({enrollment.subjectCode})
                     </strong>
                     <div>Credits: {enrollment.credits}</div>
-                    <div>Faculty ID: {enrollment.emailId}</div>
-                    <div>
-                      Students Enrolled: {enrollment.students?.length || 0}
-                    </div>
                   </SubjectInfo>
                 </ClassItem>
               ))}

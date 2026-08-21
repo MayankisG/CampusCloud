@@ -142,12 +142,12 @@ const Sidebar = () => {
           <SidebarIcon>
             <BsPeople />
           </SidebarIcon>
-          {/* <StyledLink to="/teacher/students">Students</StyledLink>
+          <StyledLink to="/teacher/students">Students</StyledLink>
         </SidebarNavItem>
         <SidebarNavItem>
           <SidebarIcon>
             <BsCalendar />
-          </SidebarIcon> */}
+          </SidebarIcon>
           <StyledLink to="/teacher/attendance">Attendance</StyledLink>
         </SidebarNavItem>
         <SidebarNavItem>
